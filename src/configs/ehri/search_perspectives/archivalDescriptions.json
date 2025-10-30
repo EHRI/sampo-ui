@@ -1,0 +1,740 @@
+{
+    "id": "archivalDescriptions",
+    "endpoint": {
+        "url": "https://lod.ehri-project-test.eu/sparql",
+        "useAuth": false,
+        "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesArchivalDescriptions.js",
+    "baseURI": "http://lod.ehri-project-test.eu",
+    "URITemplate": "<BASE_URI>/units/<LOCAL_ID>",
+    "facetClass": "ehri:RecordSet",
+    "frontPageImage": "main_page/theme-image-3.jpg",
+    "searchMode": "faceted-search",
+    "enableDynamicLanguageChange": false,
+    "defaultActiveFacets": [
+        "prefLabel"
+    ],
+    "defaultTab": "table",
+    "defaultInstancePageTab": "table",
+    "resultClasses": {
+        "archivalDescriptions": {
+            "paginatedResultsConfig": {
+                "tabID": 0,
+                "component": "ResultTable",
+                "tabPath": "table",
+                "tabIcon": "CalendarViewDay",
+                "propertiesQueryBlock": "archivalDescriptionProperties",
+                "pagesize": 50,
+                "sortByPredicate": "rico:title",
+                "sortDirection": "desc"
+            },
+            "instanceConfig": {
+                "propertiesQueryBlock": "archivalDescriptionProperties",
+                "instancePageResultClasses": {
+                    "instancePageTable": {
+                        "tabID": 0,
+                        "component": "InstancePageTable",
+                        "tabPath": "table",
+                        "tabIcon": "CalendarViewDay"
+                    },
+                    "descriptionsCopyNetwork": {
+                        "tabID": 1,
+                        "component": "Network",
+                        "tabPath": "network_copy_links_archival_descriptions",
+                        "tabIcon": "BubbleChart",
+                        "pageType": "instancePage",
+                        "sparqlQuery": "descriptionCopyLinksNetworkQuery",
+                        "sparqlQueryNodes": "descriptionCopyLinksNetworkNodeQuery",
+                        "useNetworkAPI": true,
+                        "limit": 25,
+                        "optimize": 1.2,
+                        "preprocess": "preprocessPageRank",
+                        "style": [
+                            {
+                                "selector": "node",
+                                "style": {
+                                    "shape": "ellipse",
+                                    "label": "data(prefLabel)",
+                                    "font-size": "8"
+                                }
+                            },
+                            {
+                                "selector": "edge",
+                                "style": {
+                                    "curve-style": "bezier",
+                                    "target-arrow-shape": "triangle",
+                                    "target-arrow-color": "#999",
+                                    "color": "#555",
+                                    "font-size": "10",
+                                    "text-valign": "top",
+                                    "text-halign": "center",
+                                    "edge-text-rotation": "autorotate",
+                                    "text-background-opacity": 1,
+                                    "text-background-color": "white",
+                                    "text-background-shape": "roundrectangle",
+                                    "label": "data(typeOfRelation)"
+                                }
+                            }
+                        ],
+                        "layout": {
+                            "name": "cose",
+                            "idealEdgeLength": 100,
+                            "nodeOverlap": 20,
+                            "refresh": 20,
+                            "fit": true,
+                            "padding": 30,
+                            "randomize": false,
+                            "componentSpacing": 100,
+                            "nodeRepulsion": 400000,
+                            "edgeElasticity": 100,
+                            "nestingFactor": 5,
+                            "gravity": 80,
+                            "numIter": 1347,
+                            "initialTemp": 200,
+                            "coolingFactor": 0.95,
+                            "minTemp": 1
+                        }
+                    }
+                }
+            }
+        },
+        "knowledgeGraphMetadata": {
+            "sparqlQuery": "knowledgeGraphMetadataQuery",
+            "resultMapper": "makeObjectList"
+        },
+        "descriptionsHolders": {
+            "tabID": 1,
+            "component": "LeafletMap",
+            "tabPath": "descriptions_holders",
+            "tabIcon": "AddLocation",
+            "sparqlQuery": "descriptionsLocationsQuery",
+            "facetClass": "archivalDescriptions",
+            "filterTarget": "description",
+            "resultMapper": "mapPlaces",
+            "showExternalLayers": true,
+            "instanceConfig": {
+                "propertiesQueryBlock": "descriptionsPropertiesInfoWindow",
+                "createPopUpContent": "createPopUpContentMMM"
+            }
+        }
+    },
+    "maps": {
+        "descriptionsHolders": {
+            "center": [
+                22.43,
+                10.37
+            ],
+            "zoom": 2
+        }
+    },
+    "properties": [
+        {
+            "id": "uri",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "portalURI",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "webpage",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 50,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "prefLabel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250,
+            "collapsedMaxWords": 20
+        },
+        {
+            "id": "institution",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "collapsedMaxWords": 10,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "identifier",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 50
+        },
+        {
+            "id": "otherIdentifiers",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "parallelTitles",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "collapsedMaxWords": 20,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "language",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 30,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "script",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 30,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "date",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "beginningDate",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "endDate",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "archivalLevel",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 50
+        },
+        {
+            "id": "scopeAndContent",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "collapsedMaxWords": 20,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "history",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "appraisal",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "accruals",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "extentAndMedium",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "collapsedMaxWords": 20,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "physicalCharacteristics",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "collapsedMaxWords": 20,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "structure",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "collapsedMaxWords": 20,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "conditionsOfAccess",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "conditionsOfUse",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "otherFindingAids",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "ehriTerms",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 50,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "ehriCamps",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 50,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "ehriGhettos",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 50,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "ehriCBs",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 50,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "ehriPersons",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 50,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "creators",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 50,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "parent",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "childDescriptions",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "locationOfCopies",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,            
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "locationOfOriginals",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "hasCopy",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "isCopyOf",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "publicationNote",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "sources",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "notes",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "archivistNote",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "relatedMaterial",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "separatedMaterial",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        }
+    ],
+    "facets": {
+        "prefLabel": {
+            "sortByPredicate": "rico:title",
+            "searchField": true,
+            "containerClass": "one",
+            "facetType": "text",
+            "filterType": "textFilter",
+            "textQueryProperty": "rico:title"
+        },
+        "language": {
+            "barChartButton": true,
+            "containerClass": "ten",
+            "filterType": "uriFilter",
+            "pieChartButton": true,
+            "predicate": "rico:hasOrHadSomeMembersWithLanguage",
+            "facetLabelPredicate": "rico:name",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasOrHadSomeMembersWithLanguage/rico:name",
+            "sortDirection": "desc"
+        },
+        "script": {
+            "barChartButton": true,
+            "containerClass": "ten",
+            "filterType": "uriFilter",
+            "pieChartButton": true,
+            "predicate": "ehri:hasOrHadScript",
+            "facetLabelPredicate": "rico:name",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "ehri:hasOrHadScript/rico:name",
+            "sortDirection": "desc"
+        },
+        "archivalLevel": {
+            "barChartButton": true,
+            "containerClass": "ten",
+            "filterType": "uriFilter",
+            "pieChartButton": true,
+            "predicate": "rico:hasRecordSetType",
+            "facetLabelPredicate": "^rico:hasRecordSetType? ?instance . BIND(REPLACE(STR(?id), '^.*#(.+)', '$1') AS ?prefLabel_) # ",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortDirection": "desc"
+        },
+        "institution": {
+            "barChartButton": true,
+            "containerClass": "ten",
+            "filterType": "uriFilter",
+            "pieChartButton": true,
+            "predicate": "rico:hasOrHadHolder",
+            "facetLabelPredicate": "rico:name",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasOrHadHolder/rico:name",
+            "sortDirection": "desc"
+        },
+        "country": {
+            "barChartButton": true,
+            "containerClass": "ten",
+            "filterType": "uriFilter",
+            "pieChartButton": true,
+            "predicate": "rico:hasOrHadHolder/^rico:isOrWasLocationOfAgent",
+            "facetLabelPredicate": "rico:name",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasOrHadHolder/^rico:isOrWasLocationOfAgent/rico:name",
+            "sortDirection": "desc"
+        },
+        "region": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetValueFilter": "?id a ?place . VALUES ?place { ehri:Region }",
+            "facetLabelPredicate": "rico:name",
+            "filterType": "uriFilter",
+            "predicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isOrWasContainedBy*",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isOrWasContainedBy*/rico:name",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "city": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetValueFilter": "?id a ?place . VALUES ?place { ehri:City }",
+            "facetLabelPredicate": "rico:name",
+            "filterType": "uriFilter",
+            "predicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isOrWasContainedBy*",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isOrWasContainedBy*/rico:name",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "ehriTerms": {
+            "containerClass": "ten",
+            "facetType": "hierarchical",
+            "facetValueFilter": "FILTER(STRSTARTS(STR(?id), 'http://lod.ehri-project-test.eu/vocabularies/ehri-terms/')) FILTER(LANG(?prefLabel_) = 'en') ?id a ?term . VALUES ?term { skos:Concept } ",
+            "facetLabelPredicate": "skos:prefLabel",
+            "filterType": "uriFilter",
+            "predicate": "rico:hasOrHadSubject*",
+            "parentProperty": "skos:broader",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasOrHadSubject/skos:prefLabel",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "ehriCamps": {
+            "containerClass": "ten",
+            "facetType": "hierarchical",
+            "facetValueFilter": "FILTER(STRSTARTS(STR(?id), 'http://lod.ehri-project-test.eu/vocabularies/ehri-camps/')) FILTER(LANG(?prefLabel_) = 'en') ?id a ?term . ",
+            "facetLabelPredicate": "skos:prefLabel",
+            "filterType": "uriFilter",
+            "predicate": "rico:hasOrHadSubject*",
+            "parentProperty": "skos:broader",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasOrHadSubject/skos:prefLabel",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "ehriGhettos": {
+            "containerClass": "ten",
+            "facetType": "hierarchical",
+            "facetValueFilter": "FILTER(STRSTARTS(STR(?id), 'http://lod.ehri-project-test.eu/vocabularies/ehri-ghettos/')) FILTER(LANG(?prefLabel_) = 'en') ?id a ?term .",
+            "facetLabelPredicate": "skos:prefLabel",
+            "filterType": "uriFilter",
+            "predicate": "rico:hasOrHadSubject*",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasOrHadSubject/skos:prefLabel",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "ehriCBs": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetValueFilter": "?id a ehri:CorporateBody .",
+            "facetLabelPredicate": "rico:name",
+            "filterType": "uriFilter",
+            "predicate": "rico:hasOrHadSubject*",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasOrHadSubject/rico:name",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "ehriPersons": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetValueFilter": "?id a ehri:Person .",
+            "facetLabelPredicate": "rico:name",
+            "filterType": "uriFilter",
+            "predicate": "rico:hasOrHadSubject*",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasOrHadSubject/rico:name",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "creators": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetValueFilter": "?id a ?creatorType .  VALUES ?creatorType { ehri:Person ehri:CorporateBody } .",
+            "facetLabelPredicate": "rico:name",
+            "filterType": "uriFilter",
+            "predicate": "rico:hasCreator?",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "rico:hasCreator/rico:name",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        }
+    }
+}

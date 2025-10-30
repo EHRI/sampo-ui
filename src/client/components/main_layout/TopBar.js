@@ -232,7 +232,9 @@ const TopBar = props => {
                   [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
                     height: props.layoutConfig.topBar.logoImageHeight || 40
                   },
-                  marginRight: theme.spacing(1)
+                  marginRight: props.layoutConfig.topBar.logoImageMarginRight || theme.spacing(1),
+                  marginLeft: props.layoutConfig.topBar.logoImageMarginLeft || 0 ,
+                  filter: props.layoutConfig.topBar.logoImageFilter || 'none'
                 })}
               />}
             {!topBar.hideLogoText &&
