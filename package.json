@@ -12,8 +12,8 @@
   ],
   "scripts": {
     "build": "npm run build-client && npm run build-server",
-    "build-client": "cross-env BABEL_ENV=browser webpack --progress --config webpack.client.prod.js",
-    "build-server": "cross-env BABEL_ENV=node babel src/server --out-dir ./dist/server --copy-files",
+    "build-client": "cross-env BABEL_ENV=browser PUBLIC_URL=/sampo/ webpack --progress --config webpack.client.prod.js",
+    "build-server": "cross-env BABEL_ENV=node PUBLIC_URL=/sampo/ babel src/server --out-dir ./dist/server --copy-files",
     "client": "cross-env BABEL_ENV=browser webpack serve --config webpack.client.dev.js",
     "dev": "concurrently --prefix none --kill-others \"npm run server\" \"npm run client\"",
     "server": "cross-env BABEL_ENV=node NODE_ENV=development nodemon -r dotenv/config src/server/index.js --exec babel-node",

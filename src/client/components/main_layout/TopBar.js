@@ -219,7 +219,7 @@ const TopBar = props => {
                 minWidth: 48
               }
             })}
-            component={AdapterLink} to='/'
+            component={AdapterLink} to='/sampo'
             onClick={() => federatedSearchMode ? props.clientFSClearResults() : null}
           >
             {topBar.logoImage &&

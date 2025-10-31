@@ -152,15 +152,16 @@ export const pickSelectedDatasets = datasets => {
 }
 
 export const updateLocaleToPathname = ({ pathname, locale, replaceOld }) => {
-  const numberOfSlashes = pathname.split('/').length - 1
+  const pathnameWithoutRoot = pathname.includes('/sampo') ? pathname.replace('/sampo', '') : pathname
+  const numberOfSlashes = pathnameWithoutRoot.split('/').length - 1
   let newPathname
   if (replaceOld) {
-    const pathnameLangRemoved = numberOfSlashes === 1 ? '' : pathname.substring(pathname.indexOf('/', 1))
+    const pathnameLangRemoved = numberOfSlashes === 1 ? '' : pathnameWithoutRoot.substring(pathnameWithoutRoot.indexOf('/', 1))
     newPathname = `/${locale}${pathnameLangRemoved}` // TODO: handle rootUrl from generalConfig
   } else {
-    newPathname = `/${locale}${pathname}`
+    newPathname = pathnameWithoutRoot.includes(`/${locale}`) ? `${pathnameWithoutRoot}` : `/${locale}${pathnameWithoutRoot}`
   }
-  return newPathname
+  return `/sampo${newPathname}`
 }
 
 export const objectToQueryParams = data => {

@@ -1,6 +1,6 @@
 {
     "portalID": "ehri",
-    "rootUrl": "",
+    "rootUrl": "/sampo",
     "perspectives": {
         "searchPerspectives": [
             "countries",
@@ -24,7 +24,7 @@
         ]
     },
     "sitemapConfig": {
-        "baseUrl": "https://https://lod.ehri-project-test.eu/sampo",
+        "baseUrl": "https://lod.ehri-project-test.eu/sampo",
         "langPrimary": "en",
         "outputDir": "./src/server/sitemap_generator",
         "sitemapUrl": "https://lod.ehri-project-test.eu/sampo/sitemap",

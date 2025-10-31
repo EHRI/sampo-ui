@@ -12,7 +12,7 @@ export const medium = () => {
     <Main
       perspectives={perspectiveConfig}
       screenSize='md'
-      rootUrl='/sampo'
+      rootUrl=''
     />
   )
 }
@@ -22,7 +22,7 @@ export const small = () => {
     <Main
       perspectives={perspectiveConfig}
       screenSize='sm'
-      rootUrl='/sampo'
+      rootUrl=''
     />
   )
 }
@@ -32,7 +32,7 @@ export const extraLarge = () => {
     <Main
       perspectives={perspectiveConfig}
       screenSize='xl'
-      rootUrl='/sampo'
+      rootUrl=''
     />
   )
 }

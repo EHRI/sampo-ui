@@ -56,9 +56,9 @@ createBackendSearchConfig().then(backendSearchConfig => {
   let publicPath = null
   if (!isDevelopment) {
     // The root directory from which to serve static assets
-    publicPath = path.join(__dirname, './../public/')
+    publicPath = path.join(__dirname, './../sampo/public/')
     // app.use(express.static(publicPath))
-    app.use('/', expressStaticGzip(publicPath))
+    app.use('/sampo/', expressStaticGzip(publicPath))
   }
 
   // React app makes requests to these api urls
