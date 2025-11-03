@@ -12,7 +12,7 @@ export const basic = () => {
   return (
     <TopBarSearchField
       xsScreen={false}
-      rootUrl=''
+      rootUrl='/sampo'
     />
   )
 }
@@ -21,7 +21,7 @@ export const extraSmall = () => {
   return (
     <TopBarSearchField
       xsScreen
-      rootUrl=''
+      rootUrl='/sampo'
     />
   )
 }

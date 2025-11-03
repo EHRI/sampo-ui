@@ -23,7 +23,7 @@ export const basic = () => {
         updateRowsPerPage={() => null}
         sortResults={() => null}
         location={location}
-        rootUrl=''
+        rootUrl='/sampo'
       />
     </div>
   )

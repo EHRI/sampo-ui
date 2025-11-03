@@ -16,7 +16,7 @@ export const basic = () => {
         key={perspective.id}
         perspective={perspective}
         cardHeadingVariant='h5'
-        rootUrl=''
+        rootUrl='/sampo'
       />
     </div>
   )

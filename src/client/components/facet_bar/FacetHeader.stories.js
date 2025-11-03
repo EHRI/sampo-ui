@@ -31,7 +31,7 @@ export const basic = props => {
         fetchFacetConstrainSelf={() => null}
         updateFacetOption={() => null}
         facetDescription={description}
-        rootUrl=''
+        rootUrl='/sampo'
       />
     </Paper>
   )

@@ -1,10 +1,8 @@
-const path = require('path')
 require('dotenv').config()
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack')
 
-const outputDirectory = 'dist/sampo/public'
 const apiUrl = typeof process.env.API_URL !== 'undefined' ? process.env.API_URL : 'http://localhost:3001/api/v1'
 const mapboxAccessToken = typeof process.env.MAPBOX_ACCESS_TOKEN !== 'undefined' ? process.env.MAPBOX_ACCESS_TOKEN : 'MAPBOX_ACCESS_TOKEN missing'
 
@@ -34,9 +32,7 @@ module.exports = {
     })
   ],
   output: {
-    filename: '[name].[fullhash].js',
-    path: path.resolve(__dirname, outputDirectory),
-    publicPath: '/sampo/'
+    filename: '[name].[fullhash].js'
   },
   module: {
     rules: [

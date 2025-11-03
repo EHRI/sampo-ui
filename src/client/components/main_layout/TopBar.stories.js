@@ -15,7 +15,7 @@ export const basic = props => {
   const location = useLocation()
   return (
     <TopBar
-      rootUrl=''
+      rootUrl='/sampo'
       search={fullTextSearch}
       perspectives={perspectiveConfig}
       currentLocale={options.currentLocale}

@@ -28,7 +28,7 @@ export const basic = props => {
         fetchResultCount={() => null}
         updateFacetOption={() => null}
         defaultActiveFacets={perspective.defaultActiveFacets}
-        rootUrl=''
+        rootUrl='/sampo'
       />
     </div>
   )

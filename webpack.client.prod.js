@@ -1,8 +1,11 @@
+const path = require('path')
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const CopyPlugin = require('copy-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const common = require('./webpack.client.common.js')
+
+const outputDirectory = 'dist/sampo/public'
 
 module.exports = merge(common, {
   mode: 'production',
@@ -31,5 +34,9 @@ module.exports = merge(common, {
     new CompressionPlugin({
       test: /\.js(\?.*)?$/i
     })
-  ]
+  ],
+  output: {
+    path: path.resolve(__dirname, outputDirectory),
+    publicPath: '/sampo/'
+  }
 })
