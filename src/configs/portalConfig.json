@@ -6,6 +6,9 @@
             "countries",
             "institutions",
             "archivalDescriptions",
+            "terms",
+            "camps",
+            "ghettos",
             "fullTextSearch"
         ],
         "onlyInstancePages": [

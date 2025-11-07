@@ -51,24 +51,30 @@ export const archivalDescriptionProperties = `
     }
     UNION
     {
-      ?id rico:hasOrHadSubject ?concept .
-      ?concept skos:prefLabel ?ehriTerms .
-      FILTER(STRSTARTS(STR(?concept), 'http://lod.ehri-project-test.eu/vocabularies/ehri-terms/'))  
-      FILTER(LANG(?ehriTerms) = 'en')
+      ?id rico:hasOrHadSubject ?ehriTerms .
+      ?ehriTerms skos:prefLabel ?ehriTerms__prefLabel .
+      FILTER(STRSTARTS(STR(?ehriTerms), 'http://lod.ehri-project-test.eu/vocabularies/ehri-terms/'))  
+      FILTER(LANG(?ehriTerms__prefLabel) = 'en')
+      BIND(CONCAT("/terms/page/", REPLACE(STR(?ehriTerms), "^.*\\\\/(.+)", "$1")) AS ?ehriTerms__dataProviderUrl)
+      BIND(?ehriTerms as ?ehriTerms__id)
     }
     UNION
     {
-      ?id rico:hasOrHadSubject ?concept .
-      ?concept skos:prefLabel ?ehriCamps .
-      FILTER(STRSTARTS(STR(?concept), 'http://lod.ehri-project-test.eu/vocabularies/ehri-camps/'))  
-      FILTER(LANG(?ehriCamps) = 'en')
+      ?id rico:hasOrHadSubject ?ehriCamps .
+      ?ehriCamps skos:prefLabel ?ehriCamps__prefLabel .
+      FILTER(STRSTARTS(STR(?ehriCamps), 'http://lod.ehri-project-test.eu/vocabularies/ehri-camps/'))  
+      FILTER(LANG(?ehriCamps__prefLabel) = 'en')
+      BIND(CONCAT("/camps/page/", REPLACE(STR(?ehriCamps), "^.*\\\\/(.+)", "$1")) AS ?ehriCamps__dataProviderUrl)
+      BIND(?ehriCamps as ?ehriCamps__id)
     }
     UNION
     {
-      ?id rico:hasOrHadSubject ?concept .
-      ?concept skos:prefLabel ?ehriGhettos .
-      FILTER(STRSTARTS(STR(?concept), 'http://lod.ehri-project-test.eu/vocabularies/ehri-ghettos/'))  
-      FILTER(LANG(?ehriGhettos) = 'en')
+      ?id rico:hasOrHadSubject ?ehriGhettos .
+      ?ehriGhettos skos:prefLabel ?ehriGhettos__prefLabel .
+      FILTER(STRSTARTS(STR(?ehriGhettos), 'http://lod.ehri-project-test.eu/vocabularies/ehri-ghettos'))  
+      FILTER(LANG(?ehriGhettos__prefLabel) = 'en')
+      BIND(CONCAT("/ghettos/page/", REPLACE(STR(?ehriGhettos), "^.*\\\\/(.+)", "$1")) AS ?ehriGhettos__dataProviderUrl)
+      BIND(?ehriGhettos as ?ehriGhettos__id)
     }
     UNION
     {

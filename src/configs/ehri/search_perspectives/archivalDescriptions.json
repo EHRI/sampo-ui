@@ -365,8 +365,8 @@
         },
         {
             "id": "ehriTerms",
-            "valueType": "string",
-            "makeLink": false,
+            "valueType": "object",
+            "makeLink": true,
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
@@ -376,8 +376,8 @@
         },
         {
             "id": "ehriCamps",
-            "valueType": "string",
-            "makeLink": false,
+            "valueType": "object",
+            "makeLink": true,
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
@@ -387,8 +387,8 @@
         },
         {
             "id": "ehriGhettos",
-            "valueType": "string",
-            "makeLink": false,
+            "valueType": "object",
+            "makeLink": true,
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
