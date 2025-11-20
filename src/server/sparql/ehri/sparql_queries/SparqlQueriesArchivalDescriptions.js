@@ -288,3 +288,54 @@ export const descriptionCopyLinksNetworkNodeQuery = `
     }
   }
 `
+
+export const archivalDescriptionsPerCountryQuery = `
+  SELECT (?country AS ?category) ?prefLabel (COUNT(DISTINCT ?archivalDescription) as ?instanceCount)
+  WHERE {
+    {
+      ?archivalDescription rico:hasOrHadHolder ?institution .
+      ?institution a ehri:Institution .
+      ?country rico:isOrWasLocationOfAgent ?institution .
+      ?country a ehri:Country .
+      ?country rico:name ?prefLabel .
+      FILTER(LANG(?prefLabel) = 'en')
+      <FILTER>
+    }
+  }
+  GROUP BY ?country ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const archivalDescriptionsPerRegionQuery = `
+  SELECT (?region AS ?category) ?prefLabel (COUNT(DISTINCT ?archivalDescription) as ?instanceCount)
+  WHERE {
+    {
+      ?archivalDescription rico:hasOrHadHolder ?institution .
+      ?institution a ehri:Institution ;
+        rico:agentHasOrHadLocation ?location .
+      ?location rico:isOrWasContainedBy ?region .
+      ?region a ehri:Region .
+      ?region rico:name ?prefLabel .
+      <FILTER>
+    }
+  }
+  GROUP BY ?region ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const archivalDescriptionsPerCityQuery = `
+  SELECT (?city AS ?category) ?prefLabel (COUNT(DISTINCT ?archivalDescription) as ?instanceCount)
+  WHERE {
+    {
+      ?archivalDescription rico:hasOrHadHolder ?institution .
+      ?institution a ehri:Institution ;
+        rico:agentHasOrHadLocation ?location .
+      ?location rico:isOrWasContainedBy ?city .
+      ?city a ehri:City .
+      ?city rico:name ?prefLabel .
+      <FILTER>
+    }
+  }
+  GROUP BY ?city ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`

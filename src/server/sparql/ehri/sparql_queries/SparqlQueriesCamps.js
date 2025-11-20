@@ -28,6 +28,12 @@ export const campsProperties = `
   }
 `
 
+export const campsPlusLinkedDescriptionsProperties = campsProperties + `
+  BIND(CONCAT("/sampo/en/archivalDescriptions/faceted-search/table?page=0&constraints=%5B%7B%22facetClass%22%3A+%22archivalDescriptions%22%2C+%22facetId%22%3A%22ehriCamps%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22node%22%3A%7B%22id%22%3A%22",  STR(?id), "%22%2C%22prefLabel%22%3A%22", STR(?prefLabel__id), "%22%7D%7D%7D%5D") AS ?archivalDescriptionsLink)
+  BIND(?archivalDescriptionsLink AS ?archivalDescriptionsLink__dataProviderUrl)
+  BIND("Use this camp as filter in the archival descriptions perspective" AS ?archivalDescriptionsLink__prefLabel)
+`
+
 export const campsLocationsQuery = `
   SELECT ?id ?lat ?long
   (COUNT(DISTINCT ?camp) as ?instanceCount)

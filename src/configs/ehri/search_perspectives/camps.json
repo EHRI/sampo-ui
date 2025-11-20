@@ -31,7 +31,7 @@
         "sortDirection": "asc"
       },
       "instanceConfig": {
-        "propertiesQueryBlock": "campsProperties",
+        "propertiesQueryBlock": "campsPlusLinkedDescriptionsProperties",
         "instancePageResultClasses": {
           "instancePageTable": {
             "tabID": 0,
@@ -111,7 +111,8 @@
       "sortValues": false,
       "numberedList": false,
       "collapsedMaxWords": 20,
-      "expandedOnInstancePage": true
+      "expandedOnInstancePage": true,
+      "disableSort": true
     },
     {
       "id": "numberOfConnectedDescriptions",
@@ -119,7 +120,20 @@
       "makeLink": false,
       "externalLink": false,
       "sortValues": true,
-      "numberedList": false
+      "numberedList": false,
+      "disableSort": true
+    },
+    {
+      "id": "archivalDescriptionsLink",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "disableSort": true,
+      "onlyOnInstancePage": true,
+      "expandedOnInstancePage": true,
+      "linkAsButton": true
     }
   ],
   "facets": {
