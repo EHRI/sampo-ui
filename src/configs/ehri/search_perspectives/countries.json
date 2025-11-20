@@ -30,7 +30,7 @@
         "sortDirection": "asc"
       },
       "instanceConfig": {
-        "propertiesQueryBlock": "countryProperties",
+        "propertiesQueryBlock": "countryPlusLinkProperties",
         "instancePageResultClasses": {
           "instancePageTable": {
             "tabID": 0,
@@ -77,7 +77,8 @@
       "makeLink": true,
       "externalLink": false,
       "sortValues": false,
-      "numberedList": false
+      "numberedList": false,
+      "disableSort": true
     },
     {
       "id": "numberOfInstitutions",
@@ -85,7 +86,8 @@
       "makeLink": false,
       "externalLink": false,
       "sortValues": false,
-      "numberedList": false
+      "numberedList": false,
+      "disableSort": true
     },
     {
       "id": "numberOfDescriptions",
@@ -93,7 +95,8 @@
       "makeLink": false,
       "externalLink": false,
       "sortValues": false,
-      "numberedList": false
+      "numberedList": false,
+      "disableSort": true
     },
     {
       "id": "archivalHistory",
@@ -103,7 +106,8 @@
       "sortValues": false,
       "numberedList": false,
       "collapsedMaxWords": 20,
-      "expandedOnInstancePage": true
+      "expandedOnInstancePage": true,
+      "disableSort": true
     },
     {
       "id": "archivalSituation",
@@ -113,7 +117,8 @@
       "sortValues": false,
       "numberedList": false,
       "collapsedMaxWords": 20,
-      "expandedOnInstancePage": true
+      "expandedOnInstancePage": true,
+      "disableSort": true
     },
     {
       "id": "researchExtensive",
@@ -123,7 +128,8 @@
       "sortValues": false,
       "numberedList": false,
       "collapsedMaxWords": 20,
-      "expandedOnInstancePage": true
+      "expandedOnInstancePage": true,
+      "disableSort": true
     },
     {
       "id": "researchSummary",
@@ -133,7 +139,32 @@
       "sortValues": true,
       "numberedList": false,
       "collapsedMaxWords": 20,
-      "expandedOnInstancePage": true
+      "expandedOnInstancePage": true,
+      "disableSort": true
+    },
+    {
+      "id": "institutionsLink",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "disableSort": true,
+      "onlyOnInstancePage": true,
+      "expandedOnInstancePage": true,
+      "linkAsButton": true
+    },
+    {
+      "id": "archivalDescriptionsLink",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "disableSort": true,
+      "onlyOnInstancePage": true,
+      "expandedOnInstancePage": true,
+      "linkAsButton": true
     }
   ],
   "facets": {

@@ -103,8 +103,71 @@
             "sparqlQuery": "knowledgeGraphMetadataQuery",
             "resultMapper": "makeObjectList"
         },
-        "descriptionsHolders": {
+        "archivalDescriptionsCharts": {
             "tabID": 1,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "pie_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "archivalDescriptions",
+            "dropdownForResultClasses": true,
+            "defaultResultClass": "archivalDescriptionsByCountry",
+            "resultClasses": {
+                "archivalDescriptionsByCountry": {
+                    "sparqlQuery": "archivalDescriptionsPerCountryQuery",
+                    "filterTarget": "archivalDescription",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "archivalDescriptionsByRegion": {
+                    "sparqlQuery": "archivalDescriptionsPerRegionQuery",
+                    "filterTarget": "archivalDescription",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "archivalDescriptionsByCity": {
+                    "sparqlQuery": "archivalDescriptionsPerCityQuery",
+                    "filterTarget": "archivalDescription",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                }
+            }
+        },
+        "descriptionsHolders": {
+            "tabID": 2,
             "component": "LeafletMap",
             "tabPath": "descriptions_holders",
             "tabIcon": "AddLocation",
@@ -185,7 +248,8 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "minWidth": 50
+            "minWidth": 50,
+            "disableSort": true
         },
         {
             "id": "otherIdentifiers",
@@ -205,7 +269,8 @@
             "sortValues": true,
             "numberedList": false,
             "collapsedMaxWords": 20,
-            "expandedOnInstancePage": true
+            "expandedOnInstancePage": true,
+            "disableSort": true
         },
         {
             "id": "language",
@@ -234,7 +299,8 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "minWidth": 100
+            "minWidth": 100,
+            "disableSort": true
         },
         {
             "id": "beginningDate",
@@ -243,7 +309,8 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "minWidth": 100
+            "minWidth": 100,
+            "disableSort": true
         },
         {
             "id": "endDate",
@@ -252,7 +319,8 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "minWidth": 100
+            "minWidth": 100,
+            "disableSort": true
         },
         {
             "id": "archivalLevel",
@@ -271,7 +339,8 @@
             "sortValues": false,
             "numberedList": false,
             "collapsedMaxWords": 20,
-            "expandedOnInstancePage": true
+            "expandedOnInstancePage": true,
+            "disableSort": true
         },
         {
             "id": "history",
@@ -311,7 +380,8 @@
             "sortValues": true,
             "numberedList": false,
             "collapsedMaxWords": 20,
-            "expandedOnInstancePage": true
+            "expandedOnInstancePage": true,
+            "disableSort": true
         },
         {
             "id": "physicalCharacteristics",
@@ -321,7 +391,8 @@
             "sortValues": true,
             "numberedList": false,
             "collapsedMaxWords": 20,
-            "expandedOnInstancePage": true
+            "expandedOnInstancePage": true,
+            "disableSort": true
         },
         {
             "id": "structure",
@@ -331,7 +402,8 @@
             "sortValues": true,
             "numberedList": false,
             "collapsedMaxWords": 20,
-            "expandedOnInstancePage": true
+            "expandedOnInstancePage": true,
+            "disableSort": true
         },
         {
             "id": "conditionsOfAccess",
@@ -656,14 +728,15 @@
             "facetValueFilter": "FILTER(STRSTARTS(STR(?id), 'http://lod.ehri-project-test.eu/vocabularies/ehri-terms/')) FILTER(LANG(?prefLabel_) = 'en') ?id a ?term . VALUES ?term { skos:Concept } ",
             "facetLabelPredicate": "skos:prefLabel",
             "filterType": "uriFilter",
-            "predicate": "rico:hasOrHadSubject*",
+            "predicate": "rico:hasOrHadSubject",
             "parentProperty": "skos:broader",
             "searchField": true,
             "sortButton": true,
-            "sortBy": "instanceCount",
+            "sortBy": "prefLabel",
             "sortByPredicate": "rico:hasOrHadSubject/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true
+            "pieChartButton": true,
+            "hideUnknownValue": true
         },
         "ehriCamps": {
             "containerClass": "ten",
@@ -671,28 +744,30 @@
             "facetValueFilter": "FILTER(STRSTARTS(STR(?id), 'http://lod.ehri-project-test.eu/vocabularies/ehri-camps/')) FILTER(LANG(?prefLabel_) = 'en') ?id a ?term . ",
             "facetLabelPredicate": "skos:prefLabel",
             "filterType": "uriFilter",
-            "predicate": "rico:hasOrHadSubject*",
+            "predicate": "rico:hasOrHadSubject",
             "parentProperty": "skos:broader",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "rico:hasOrHadSubject/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true
+            "pieChartButton": true,
+            "hideUnknownValue": true
         },
         "ehriGhettos": {
             "containerClass": "ten",
-            "facetType": "hierarchical",
+            "facetType": "list",
             "facetValueFilter": "FILTER(STRSTARTS(STR(?id), 'http://lod.ehri-project-test.eu/vocabularies/ehri-ghettos/')) FILTER(LANG(?prefLabel_) = 'en') ?id a ?term .",
             "facetLabelPredicate": "skos:prefLabel",
             "filterType": "uriFilter",
-            "predicate": "rico:hasOrHadSubject*",
+            "predicate": "rico:hasOrHadSubject",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "rico:hasOrHadSubject/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true
+            "pieChartButton": true,
+            "hideUnknownValue": true
         },
         "ehriCBs": {
             "containerClass": "ten",
@@ -700,13 +775,14 @@
             "facetValueFilter": "?id a ehri:CorporateBody .",
             "facetLabelPredicate": "rico:name",
             "filterType": "uriFilter",
-            "predicate": "rico:hasOrHadSubject*",
+            "predicate": "rico:hasOrHadSubject",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "rico:hasOrHadSubject/rico:name",
             "sortDirection": "desc",
-            "pieChartButton": true
+            "pieChartButton": true,
+            "hideUnknownValue": true
         },
         "ehriPersons": {
             "containerClass": "ten",
@@ -714,13 +790,14 @@
             "facetValueFilter": "?id a ehri:Person .",
             "facetLabelPredicate": "rico:name",
             "filterType": "uriFilter",
-            "predicate": "rico:hasOrHadSubject*",
+            "predicate": "rico:hasOrHadSubject",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "rico:hasOrHadSubject/rico:name",
             "sortDirection": "desc",
-            "pieChartButton": true
+            "pieChartButton": true,
+            "hideUnknownValue": true
         },
         "creators": {
             "containerClass": "ten",
@@ -728,13 +805,14 @@
             "facetValueFilter": "?id a ?creatorType .  VALUES ?creatorType { ehri:Person ehri:CorporateBody } .",
             "facetLabelPredicate": "rico:name",
             "filterType": "uriFilter",
-            "predicate": "rico:hasCreator?",
+            "predicate": "rico:hasCreator",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "rico:hasCreator/rico:name",
             "sortDirection": "desc",
-            "pieChartButton": true
+            "pieChartButton": true,
+            "hideUnknownValue": true
         }
     }
 }

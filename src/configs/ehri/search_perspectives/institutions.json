@@ -30,7 +30,7 @@
                 "sortDirection": "desc"
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "institutionProperties",
+                "propertiesQueryBlock": "institutionPlusLinkedDescriptionsProperties",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
@@ -45,7 +45,7 @@
             "sparqlQuery": "knowledgeGraphMetadataQuery",
             "resultMapper": "makeObjectList"
         },
-        "institutionsByCountry": {
+        "institutionsCharts": {
             "tabID": 1,
             "component": "ApexCharts",
             "doNotRenderOnMount": true,
@@ -57,6 +57,40 @@
             "resultClasses": {
                 "institutionsByCountry": {
                     "sparqlQuery": "institutionsPerCountryQuery",
+                    "filterTarget": "institution",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "institutionsByRegion": {
+                    "sparqlQuery": "institutionsPerRegionQuery",
+                    "filterTarget": "institution",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "institutionsByCity": {
+                    "sparqlQuery": "institutionsPerCityQuery",
                     "filterTarget": "institution",
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.01,
@@ -88,20 +122,6 @@
                 "propertiesQueryBlock": "institutionsPropertiesInfoWindow",
                 "createPopUpContent": "createPopUpContentMMM"
             }
-        },
-        "institutionsPlacesHeatmap": {
-            "tabID": 3,
-            "component": "Deck",
-            "tabPath": "institutions_places_heatmap",
-            "tabIcon": "AddLocation",
-            "sparqlQuery": "institutionsLocationsQuery",
-            "facetClass": "institutions",
-            "filterTarget": "institution",
-            "resultMapper": "makeObjectList",
-            "layerType": "heatmapLayer",
-            "heatmapRadiusPixels": 40,
-            "heatmapThreshold": 0.025,
-            "heatmapIntensity": 1
         }
     },
     "maps": {
@@ -172,7 +192,8 @@
             "makeLink": false,
             "externalLink": false,
             "sortValues": false,
-            "numberedList": false
+            "numberedList": false,
+            "disableSort": true
         },
         {
             "id": "fullAddress",
@@ -183,7 +204,7 @@
             "numberedList": false,
             "collapsedMaxWords": 20,
             "expandedOnInstancePage": true,
-            "onlyOnInstancePage": true
+            "disableSort": true
         },
         {
             "id": "webpage",
@@ -301,7 +322,9 @@
             "sortValues": true,
             "numberedList": false,
             "collapsedMaxWords": 20,
-            "expandedOnInstancePage": true
+            "expandedOnInstancePage": true,
+            "onlyOnInstancePage": true,
+            "disableSort": true
         },
         {
             "id": "conditionsOfAccess",
@@ -379,6 +402,18 @@
             "collapsedMaxWords": 20,
             "expandedOnInstancePage": true,
             "onlyOnInstancePage": true
+        },
+        {
+            "id": "archivalDescriptionsLink",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "disableSort": true,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": false,
+            "linkAsButton": true
         }
     ],
     "facets": {

@@ -26,7 +26,15 @@ const ObjectListLink = props => {
         >
           {label}
         </Button>}
-      {!externalLink &&
+      {!externalLink && props.linkAsButton &&
+        <Link to={data.dataProviderUrl}>
+          <Button 
+            variant='contained'
+          >
+          {label}
+          </Button>
+        </Link>}
+      {!externalLink && linkAsButton == null &&
         <Link to={data.dataProviderUrl}>
           {label}
         </Link>}
