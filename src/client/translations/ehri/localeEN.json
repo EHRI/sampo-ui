@@ -451,11 +451,7 @@
         },
         "telephone": {
           "label": "Telephone number",
-          "description": "The main telephone number to call."
-        },
-        "archivalDescriptionsLink": {
-          "label": "Explore linked archival descriptions",
-          "description": "Explore the archival descriptions connected to this institution."
+          "description": "TO DO"
         }
       }
     },
