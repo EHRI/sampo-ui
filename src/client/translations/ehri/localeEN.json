@@ -337,7 +337,7 @@
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to Collection Holding Institutions. This view allows you to filter the institutions by its location (country, region and city). Moreover, it offers two additional visualisation options:</p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>Pie/Bar charts</strong> which allow you to graphically represent the distribution of these institutions accross countries, regions and cities. </li> <li> <strong>Map</strong> letting you visualise the location of the institutions in a worldwide map. </li></ul>",
       "instancePage": {
         "label": "Institution",
-        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This view offers more information about the selected institution. In order to facilitate the navigation, this view contains a buttons that will drive you to the archival descriptions perspective using this specific institution as a filter, allowing you to explore the connected archival descriptions.</p>" 
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This view offers more information about the selected institution. In order to facilitate the navigation, this view contains a buttons that will drive you to the archival descriptions perspective using this specific institution as a filter, allowing you to explore the connected archival descriptions.</p>"
       },
       "properties": {
         "uri": {
@@ -451,7 +451,11 @@
         },
         "telephone": {
           "label": "Telephone number",
-          "description": "TO DO"
+          "description": "The main telephone number to call."
+        },
+        "archivalDescriptionsLink": {
+          "label": "Explore linked archival descriptions",
+          "description": "Explore the archival descriptions connected to this institution."
         }
       }
     },
