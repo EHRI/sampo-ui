@@ -10,6 +10,7 @@
             "camps",
             "ghettos",
             "corporateBodies",
+            "persons",
             "fullTextSearch"
         ],
         "onlyInstancePages": [

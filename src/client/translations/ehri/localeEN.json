@@ -13,7 +13,7 @@
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
   "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",
   "selectPerspective": "Select a perspective to search and browse the knowledge graph:",
-  "mainPageImageLicence": "Images used under license from Shutterstock.com, Wikimedia Commons and the EHRI project.",
+  "mainPageImageLicence": "Images used under license from Shutterstock.com, Wikimedia Commons, Bundesarchiv and the EHRI project.",
   "backendErrorText": "One of the backend services is not available at the moment. Please try again later.",
   "infoHeader": {
     "toggleInstructions": "Click to show or hide instructions"
@@ -917,7 +917,7 @@
         },
         "structure": {
           "label": "Structure",
-          "description": "Describes  the internal administrative structure(s) of a corporate body."
+          "description": "Describes the internal administrative structure(s) of a corporate body."
         },
         "sources": {
           "label": "Sources",
@@ -930,6 +930,91 @@
         "archivalDescriptionsLink": {
           "label": "Explore linked archival descriptions",
           "description": "Explore the archival descriptions connected to this corporate body."
+        }
+      }
+    },
+    "persons": {
+      "label": "Persons",
+      "facetResultsType": "persons",
+      "shortDescription": "A (non-exhaustive) set of persons derived from both EHRI cataloguing activities and structured data provided by EHRI partner institutions.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to EHRI Persons.</p>",
+      "instancePage": {
+        "label": "Person",
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This view offers more information about the selected person. In order to facilitate the navigation, this view contains a button that will drive you to the archival descriptions perspective using this specific person as a filter, allowing you to explore the connected archival descriptions.</p>"
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Uniform Resource Identifier"
+        },
+        "portalURI": {
+          "label": "EHRI Portal URI",
+          "description": "Link to the EHRI Portal"
+        },
+        "seeAlso": {
+          "label": "Link",
+          "description": "Link the original source or additional information"
+        },
+        "prefLabel": {
+          "label": "Name",
+          "description": "The main name for this person.",
+          "textFacetInputPlaceholder": "Search..."
+        },
+        "otherLabels": {
+          "label": "Other Names",
+          "description": "Other forms of name or parallel names for this person"
+        },
+        "date": {
+          "label": "Date",
+          "description": "Date for this person"
+        },
+        "birthDate": {
+          "label": "Birth Date",
+          "description": "Birth date of this person"
+        },
+        "deathDate": {
+          "label": "Death Date",
+          "description": "Death date of this person"
+        },
+        "generalDescription": {
+          "label": "General Description",
+          "description": "Provides significant information on the general social, cultural, economic, political and/or historical context in which the person lived."
+        },
+        "history": {
+          "label": "History",
+          "description": "Provides a concise history of the: Establishment and/or abolishment of the organisation; The main activities of the organisation, and/or; The impact or consequences of the activities of the organisation."
+        },
+        "function": {
+          "label": "Function",
+          "description": "Indicates the functions performed by the person."
+        },
+        "occupation": {
+          "label": "Occupation",
+          "description": "Indicates the occupations performed by the person."
+        },
+        "legalStatus": {
+          "label": "Legal Status",
+          "description": "Indicates the legal status of a person."
+        },
+        "mandate": {
+          "label": "Mandate",
+          "description": "Indicates the sources of authority for the person in terms of its powers, functions, responsibilities or sphere of activities, including territorial."
+        },
+        "genealogy": {
+          "label": "Genealogy",
+          "description": "Describes the genealogy of a person."
+        },
+        "sources": {
+          "label": "Sources",
+          "description": "Provides information on sources consulted in preparing the description and the personnel involved."
+        },
+        "numberOfConnectedDescriptions": {
+          "label": "Number of linked descriptions",
+          "description": "The number of descriptions linked to this person."
+        },
+        "archivalDescriptionsLink": {
+          "label": "Explore linked archival descriptions",
+          "description": "Explore the archival descriptions connected to this person."
         }
       }
     },

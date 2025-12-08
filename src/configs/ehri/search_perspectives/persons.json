@@ -1,0 +1,242 @@
+{
+  "id": "persons",
+  "endpoint": {
+    "url": "https://lod.ehri-project-test.eu/sparql",
+    "useAuth": false,
+    "prefixesFile": "SparqlQueriesPrefixes.js"
+  },
+  "sparqlQueriesFile": "SparqlQueriesPersons.js",
+  "baseURI": "http://lod.ehri-project-test.eu",
+  "URITemplate": "<BASE_URI>/vocabularies/ehri-pers/<LOCAL_ID>",
+  "facetClass": "ehri:Person",
+  "frontPageImage": "main_page/bundesarchiv-kz-auschwitz.jpg",
+  "searchMode": "faceted-search",
+  "enableDynamicLanguageChange": false,
+  "defaultActiveFacets": [
+    "prefLabel"
+  ],
+  "defaultTab": "table",
+  "defaultInstancePageTab": "table",
+  "resultClasses": {
+    "persons": {
+      "paginatedResultsConfig": {
+        "tabID": 0,
+        "component": "ResultTable",
+        "tabPath": "table",
+        "tabIcon": "CalendarViewDay",
+        "propertiesQueryBlock": "personsProperties",
+        "pagesize": 50,
+        "sortByPredicate": "rico:name",
+        "sortDirection": "asc"
+      },
+      "instanceConfig": {
+        "propertiesQueryBlock": "personsPlusLinkedDescriptionsProperties",
+        "instancePageResultClasses": {
+          "instancePageTable": {
+            "tabID": 0,
+            "component": "InstancePageTable",
+            "tabPath": "table",
+            "tabIcon": "CalendarViewDay"
+          }
+        }
+      }
+    }
+  },
+  "properties": [
+    {
+      "id": "uri",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": true,
+      "sortValues": true,
+      "numberedList": false,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "portalURI",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": true,
+      "sortValues": true,
+      "numberedList": false,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "seeAlso",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": true,
+      "sortValues": true,
+      "numberedList": false,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "prefLabel",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false
+    },
+    {
+      "id": "otherLabels",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": false,
+      "numberedList": false,
+      "collapsedMaxWords": 20,
+      "expandedOnInstancePage": true,
+      "disableSort": true
+    },
+    {
+      "id": "date",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "expandedOnInstancePage": true,
+      "disableSort": true
+    },
+    {
+      "id": "birthDate",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "expandedOnInstancePage": true,
+      "disableSort": true
+    },
+    {
+      "id": "deathDate",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "expandedOnInstancePage": true,
+      "disableSort": true
+    },
+    {
+      "id": "generalDescription",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "collapsedMaxWords": 20,
+      "expandedOnInstancePage": true,
+      "disableSort": true
+    },
+    {
+      "id": "history",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "collapsedMaxWords": 20,
+      "expandedOnInstancePage": true,
+      "disableSort": true
+    },
+    {
+      "id": "function",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "expandedOnInstancePage": true,
+      "disableSort": true,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "occupation",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "expandedOnInstancePage": true,
+      "disableSort": true,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "legalStatus",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "expandedOnInstancePage": true,
+      "disableSort": true,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "mandate",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "expandedOnInstancePage": true,
+      "disableSort": true,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "genealogy",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "expandedOnInstancePage": true,
+      "disableSort": true,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "sources",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "expandedOnInstancePage": true,
+      "onlyOnInstancePage": true,
+      "disableSort": true
+    },
+    {
+      "id": "numberOfConnectedDescriptions",
+      "valueType": "string",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "disableSort": true
+    },
+    {
+      "id": "archivalDescriptionsLink",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "disableSort": true,
+      "onlyOnInstancePage": true,
+      "expandedOnInstancePage": true,
+      "linkAsButton": true
+    }
+  ],
+  "facets": {
+    "prefLabel": {
+      "sortByPredicate": "rico:name",
+      "searchField": true,
+      "containerClass": "one",
+      "facetType": "text",
+      "filterType": "textFilter",
+      "textQueryProperty": "rico:name"
+    }
+  }
+}
