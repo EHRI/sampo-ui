@@ -95,6 +95,13 @@
                             "coolingFactor": 0.95,
                             "minTemp": 1
                         }
+                    },
+                    "instancePageExport": {
+                        "tabID": 2,
+                        "component": "Export",
+                        "tabPath": "export",
+                        "tabIcon": "CloudDownload",
+                        "pageType": "instancePage"
                     }
                 }
             }
@@ -180,6 +187,14 @@
                 "propertiesQueryBlock": "descriptionsPropertiesInfoWindow",
                 "createPopUpContent": "createPopUpContentMMM"
             }
+        },
+        "export": {
+            "tabID": 3,
+            "component": "Export",
+            "tabPath": "export",
+            "tabIcon": "CloudDownload",
+            "resultClass": "archivalDescriptions",
+            "facetClass": "archivalDescriptions"
         }
     },
     "maps": {

@@ -38,6 +38,13 @@
             "component": "InstancePageTable",
             "tabPath": "table",
             "tabIcon": "CalendarViewDay"
+          },
+          "instancePageExport": {
+            "tabID": 1,
+            "component": "Export",
+            "tabPath": "export",
+            "tabIcon": "CloudDownload",
+            "pageType": "instancePage"
           }
         }
       }
@@ -56,6 +63,14 @@
           "propertiesQueryBlock": "campsPropertiesInfoWindow",
           "createPopUpContent": "createPopUpContentMMM"
       }
+    },
+    "export": {
+      "tabID": 3,
+      "component": "Export",
+      "tabPath": "export",
+      "tabIcon": "CloudDownload",
+      "resultClass": "camps",
+      "facetClass": "camps"
     }
   },
   "maps": {

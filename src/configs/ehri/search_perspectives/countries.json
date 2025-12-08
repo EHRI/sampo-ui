@@ -37,9 +37,24 @@
             "component": "InstancePageTable",
             "tabPath": "table",
             "tabIcon": "CalendarViewDay"
+          },
+          "instancePageExport": {
+            "tabID": 1,
+            "component": "Export",
+            "tabPath": "export",
+            "tabIcon": "CloudDownload",
+            "pageType": "instancePage"
           }
         }
       }
+    },
+    "export": {
+      "tabID": 3,
+      "component": "Export",
+      "tabPath": "export",
+      "tabIcon": "CloudDownload",
+      "resultClass": "countries",
+      "facetClass": "countries"
     }
   },
   "properties": [

@@ -113,7 +113,7 @@
         "mapboxStyle": "light-v10"
     },
     "yasguiConfig": {
-        "yasguiBaseURL": "https://yasgui.triply.cc",
+        "yasguiBaseURL": "https://lod.ehri-project-test.eu/query",
         "yasguiParams": {
             "contentTypeConstruct": "text/turtle",
             "contentTypeSelect": "application/sparql-results+json",

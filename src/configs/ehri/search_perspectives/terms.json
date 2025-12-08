@@ -154,9 +154,24 @@
               "coolingFactor": 0.95,
               "minTemp": 1
             }
+          },
+          "instancePageExport": {
+            "tabID": 3,
+            "component": "Export",
+            "tabPath": "export",
+            "tabIcon": "CloudDownload",
+            "pageType": "instancePage"
           }
         }
       }
+    },
+    "export": {
+      "tabID": 1,
+      "component": "Export",
+      "tabPath": "export",
+      "tabIcon": "CloudDownload",
+      "resultClass": "terms",
+      "facetClass": "terms"
     }
   },
   "properties": [
