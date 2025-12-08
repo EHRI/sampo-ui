@@ -15,7 +15,7 @@ export const institutionProperties = `
       ?country rico:isOrWasLocationOfAgent ?id .
       ?country a ehri:Country .
       ?country rico:name ?country__prefLabel .
-      BIND(CONCAT("/country/page/", REPLACE(STR(?country), "^.*\\\\/(.+)", "$1")) AS ?country__dataProviderUrl)
+      BIND(CONCAT("/countries/page/", REPLACE(STR(?country), "^.*\\\\/(.+)", "$1")) AS ?country__dataProviderUrl)
       BIND(?country as ?country__id)
       FILTER(LANG(?country__prefLabel) = 'en')
     }

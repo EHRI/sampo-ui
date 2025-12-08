@@ -587,6 +587,10 @@
           "label": "EHRI Corporate Body",
           "description": "EHRI Corporate Bodies linked to the archival description."
         },
+        "ehriFamilies": {
+          "label": "EHRI Family",
+          "description": "EHRI Families linked to the archival description."
+        },
         "ehriPersons": {
           "label": "EHRI Person",
           "description": "EHRI Persons linked to the archival description."
@@ -721,7 +725,7 @@
       "label": "Terms",
       "facetResultsType": "terms",
       "shortDescription": "A hierarchically organised, multi-lingual set of subject headings developed by EHRI.",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to EHRI Terms. The EHRI terms is a hierarchically organised, multi-lingual set of subject headings developed by EHRI, formatted in SKOS and available for download in its <a href=\"https://portal.ehri-project.eu/vocabularies/ehri_terms\">EHRI Portal page</a>.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to EHRI Terms. The EHRI terms is a hierarchically organised, multi-lingual set of subject headings developed by EHRI, formatted in SKOS and available for download in its <a href=\"https://portal.ehri-project.eu/vocabularies/ehri_terms\">EHRI Portal page</a>.</p>",
       "instancePage": {
         "label": "Term",
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This view offers more information about the selected term. In order to facilitate the navigation, this view contains a button that will drive you to the archival descriptions perspective using this specific term as a filter, allowing you to explore the connected archival descriptions. Besides, two additional graphical representations are offered for visualising the network of narrower and broader items.</p>"
@@ -841,6 +845,91 @@
         "archivalDescriptionsLink": {
           "label": "Explore linked archival descriptions",
           "description": "Explore to the archival descriptions connected to this ghetto."
+        }
+      }
+    },
+    "corporateBodies": {
+      "label": "Corporate Bodies",
+      "facetResultsType": "corporate bodies",
+      "shortDescription": "A (non-exhaustive) set of corporate bodies derived from both EHRI cataloguing activities and structured data provided by EHRI partner institutions.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to EHRI Corporate Bodies. </p>",
+      "instancePage": {
+        "label": "Corporate Body",
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This view offers more information about the selected corporate body. In order to facilitate the navigation, this view contains a button that will drive you to the archival descriptions perspective using this specific corporate body as a filter, allowing you to explore the connected archival descriptions.</p>"
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Uniform Resource Identifier"
+        },
+        "portalURI": {
+          "label": "EHRI Portal URI",
+          "description": "Link to the EHRI Portal"
+        },
+        "seeAlso": {
+          "label": "Link",
+          "description": "Link the original source or additional information"
+        },
+        "prefLabel": {
+          "label": "Name",
+          "description": "The main name for this corporate body.",
+          "textFacetInputPlaceholder": "Search..."
+        },
+        "otherLabels": {
+          "label": "Other Names",
+          "description": "Names for this corporate body in other languages"
+        },
+        "date": {
+          "label": "Date",
+          "description": "Date for this corporate body"
+        },
+        "beginningDate": {
+          "label": "Beginning Date",
+          "description": "Beginning date for this corporate body"
+        },
+        "endDate": {
+          "label": "End Date",
+          "description": "End date for this corporate body"
+        },
+        "generalDescription": {
+          "label": "General Description",
+          "description": "Provides significant information on the general social, cultural, economic, political and/or historical context in which the corporate body operated."
+        },
+        "history": {
+          "label": "History",
+          "description": "Provides a concise history of the: Establishment and/or abolishment of the organisation; The main activities of the organisation, and/or; The impact or consequences of the activities of the organisation."
+        },
+        "function": {
+          "label": "Function",
+          "description": "Indicates the functions performed by the corporate body."
+        },
+        "occupation": {
+          "label": "Occupation",
+          "description": "Indicates the occupations performed by the corporate body."
+        },
+        "legalStatus": {
+          "label": "Legal Status",
+          "description": "Indicates the legal status of a corporate body."
+        },
+        "mandate": {
+          "label": "Mandate",
+          "description": "Indicates the sources of authority for the corporate body in terms of its powers, functions, responsibilities or sphere of activities, including territorial."
+        },
+        "structure": {
+          "label": "Structure",
+          "description": "Describes  the internal administrative structure(s) of a corporate body."
+        },
+        "sources": {
+          "label": "Sources",
+          "description": "Provides information on sources consulted in preparing the description and the personnel involved."
+        },
+        "numberOfConnectedDescriptions": {
+          "label": "Number of linked descriptions",
+          "description": "The number of descriptions linked to this corporate body."
+        },
+        "archivalDescriptionsLink": {
+          "label": "Explore linked archival descriptions",
+          "description": "Explore the archival descriptions connected to this corporate body."
         }
       }
     },

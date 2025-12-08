@@ -78,9 +78,17 @@ export const archivalDescriptionProperties = `
     }
     UNION
     {
+      ?id rico:hasOrHadSubject ?ehriCBs .
+      ?ehriCBs a ehri:CorporateBody ;
+        rico:name ?ehriCBs__prefLabel .
+      BIND(CONCAT("/corporateBodies/page/", REPLACE(STR(?ehriCBs), "^.*\\\\/(.+)", "$1")) AS ?ehriCBs__dataProviderUrl)
+      BIND(?ehriCBs as ?ehriCBs__id)
+    }
+    UNION
+    {
       ?id rico:hasOrHadSubject ?concept .
-      ?concept a ehri:CorporateBody ;
-        rico:name ?ehriCBs .
+      ?concept a ehri:Family ;
+        rico:name ?ehriFamilies .
     }
     UNION
     {
@@ -93,7 +101,7 @@ export const archivalDescriptionProperties = `
       ?id rico:hasCreator ?concept .
       ?concept a ?creatorType ;
         rico:name ?creators .
-      VALUES ?creatorType { ehri:Person ehri:CorporateBody } 
+      VALUES ?creatorType { ehri:Person ehri:CorporateBody ehri:Family } 
     }
     UNION
     {
