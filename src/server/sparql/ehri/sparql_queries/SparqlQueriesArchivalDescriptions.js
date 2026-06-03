@@ -137,7 +137,11 @@ export const archivalDescriptionProperties = `
     }
     UNION
     {
-      ?id rico:history ?history .
+      ?id ehri:biographicalHistory ?biographicalHistory .
+    }
+    UNION
+    {
+      ?id ehri:archivalHistory ?archivalHistory .
     }
     UNION
     {
@@ -157,7 +161,7 @@ export const archivalDescriptionProperties = `
     }
     UNION
     {
-      ?id ehri:physicalCharacterisiticsAndTechnicalRequirements ?physicalCharacteristics .
+      ?id ehri:physicalCharacteristicsAndTechnicalRequirements ?physicalCharacteristics .
     }
     UNION
     {
@@ -174,14 +178,18 @@ export const archivalDescriptionProperties = `
     UNION
     {
       {
-        ?id ehri:hasCopy ?hasCopy .
+        ?id rico:thingIsSourceOfRelation ?hasCopyRelation .
+        ?hasCopyRelation a ehri:HasCopyRelation .
+        ?hasCopy rico:thingIsTargetOfRelation ?hasCopyRelation .
         ?hasCopy a ehri:RecordSet ;
           rico:title ?hasCopy__prefLabel .
         BIND(CONCAT("/archivalDescriptions/page/", REPLACE(STR(?hasCopy), "^.*\\\\/(.+)", "$1")) AS ?hasCopy__dataProviderUrl)
       }
       UNION
       {
-        ?id ehri:hasCopy ?hasCopy .
+        ?id rico:thingIsSourceOfRelation ?hasCopyRelation .
+        ?hasCopyRelation a ehri:HasCopyRelation .
+        ?hasCopy rico:thingIsTargetOfRelation ?hasCopyRelation .
         ?hasCopy a ehri:Institution ;
           rico:name ?hasCopy__prefLabel .
         BIND(CONCAT("/institutions/page/", REPLACE(STR(?hasCopy), "^.*\\\\/(.+)", "$1")) AS ?hasCopy__dataProviderUrl)
@@ -190,14 +198,18 @@ export const archivalDescriptionProperties = `
     UNION
     {
       {
-        ?id ehri:isCopyOf ?isCopyOf .
+        ?id rico:thingIsSourceOfRelation ?isCopyOfRelation .
+        ?isCopyOfRelation a ehri:IsCopyOfRelation .
+        ?isCopyOf rico:thingIsTargetOfRelation ?isCopyOfRelation .
         ?isCopyOf a ehri:RecordSet ;
           rico:title ?isCopyOf__prefLabel .
         BIND(CONCAT("/archivalDescriptions/page/", REPLACE(STR(?isCopyOf), "^.*\\\\/(.+)", "$1")) AS ?isCopyOf__dataProviderUrl)
       }
       UNION
       {
-        ?id ehri:isCopyOf ?isCopyOf .
+        ?id rico:thingIsSourceOfRelation ?isCopyOfRelation .
+        ?isCopyOfRelation a ehri:IsCopyOfRelation .
+        ?isCopyOf rico:thingIsTargetOfRelation ?isCopyOfRelation .
         ?isCopyOf a ehri:Institution ;
           rico:name ?isCopyOf__prefLabel .
         BIND(CONCAT("/institutions/page/", REPLACE(STR(?isCopyOf), "^.*\\\\/(.+)", "$1")) AS ?isCopyOf__dataProviderUrl)
@@ -205,15 +217,15 @@ export const archivalDescriptionProperties = `
     }
     UNION
     {
-      ?id ehri:publicationnote ?publicationNote .
+      ?id ehri:publicationNote ?publicationNote .
     }
     UNION
     {
-      ?id ehri:sources ?sources .
+      ?id rico:recordResourceSourceOfInformation ?sources .
     }
     UNION
     {
-      ?id ehri:notes ?notes .
+      ?id rico:note ?notes .
     }
     UNION
     {
@@ -263,12 +275,16 @@ export const descriptionCopyLinksNetworkQuery = `
   WHERE {
     VALUES ?id { <ID> }
     {
-      ?id ehri:hasCopy ?target .
+      ?id rico:thingIsSourceOfRelation ?hasCopyRelation .
+      ?hasCopyRelation a ehri:HasCopyRelation ;
+        ^rico:thingIsTargetOfRelation ?target .
       BIND("has copy" AS ?typeOfRelation)
     }
     UNION
     { 
-      ?id ehri:isCopyOf ?target .
+      ?id rico:thingIsSourceOfRelation ?isCopyOfRelation .
+      ?isCopyOfRelation a ehri:IsCopyOfRelation ;
+        ^rico:thingIsTargetOfRelation ?target .
       BIND("is copy of" AS ?typeOfRelation)
     }
   }
@@ -321,7 +337,7 @@ export const archivalDescriptionsPerRegionQuery = `
       ?archivalDescription rico:hasOrHadHolder ?institution .
       ?institution a ehri:Institution ;
         rico:agentHasOrHadLocation ?location .
-      ?location rico:isOrWasContainedBy ?region .
+      ?location rico:isContainedByTransitive* ?region .
       ?region a ehri:Region .
       ?region rico:name ?prefLabel .
       <FILTER>
@@ -338,7 +354,7 @@ export const archivalDescriptionsPerCityQuery = `
       ?archivalDescription rico:hasOrHadHolder ?institution .
       ?institution a ehri:Institution ;
         rico:agentHasOrHadLocation ?location .
-      ?location rico:isOrWasContainedBy ?city .
+      ?location rico:isContainedByTransitive* ?city .
       ?city a ehri:City .
       ?city rico:name ?prefLabel .
       <FILTER>

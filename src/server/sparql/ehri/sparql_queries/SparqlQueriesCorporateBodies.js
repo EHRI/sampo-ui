@@ -42,14 +42,14 @@ export const corporateBodiesProperties = `
   UNION
   {
     ?id rico:performsOrPerformed [
-      rico:hasOrHadActivityType ehri:FunctionType ;
+      rico:hasActivityType ehri:FunctionType ;
       rico:generalDescription ?function 
     ] .
   }
   UNION
   {
     ?id rico:performsOrPerformed [
-      rico:hasOrHadActivityType rico:OccupationType ;
+      rico:hasActivityType rico:OccupationType ;
       rico:generalDescription ?occupation 
     ] .
   }

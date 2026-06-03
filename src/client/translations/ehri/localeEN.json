@@ -647,9 +647,13 @@
           "label": "Parent archival description",
           "description": "The inmediate parent of this archival description as a hierarchical classification."
         },
-        "history": {
-          "label": "History",
-          "description": "Biographical history and archival history"
+        "archivalHistory": {
+          "label": "Archival History",
+          "description": "Archival history"
+        },
+        "biographicalHistory": {
+          "label": "Biographical History",
+          "description": "Biographical history"
         },
         "appraisal": {
           "label": "Appraisal",
