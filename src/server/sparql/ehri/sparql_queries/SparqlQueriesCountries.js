@@ -5,6 +5,8 @@ export const countryProperties = `
       BIND(?id as ?uri__id)
       BIND(?id as ?uri__dataProviderUrl)
       BIND(?id as ?uri__prefLabel)
+      BIND(CONCAT("https://ehri-portal.s3.eu-central-1.amazonaws.com/portal/images/Country/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1"), ".png") as ?flag__id)
+      BIND(CONCAT("https://ehri-portal.s3.eu-central-1.amazonaws.com/portal/images/Country/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1"), ".png") as ?flag__url)
       BIND(CONCAT("/countries/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
       BIND(CONCAT("https://portal.ehri-project.eu/countries/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?portalURI__prefLabel)
       BIND(CONCAT("https://portal.ehri-project.eu/countries/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?portalURI__dataProviderUrl)
@@ -25,13 +27,6 @@ export const countryProperties = `
     UNION
     {
       ?id ehri:researchSummary ?researchSummary .
-    }
-    UNION
-    {
-      ?id owl:sameAs ?flag__id .
-      SERVICE <https://dbpedia.org/sparql/> {
-        ?flag__id dbo:thumbnail ?flag__url .
-      }
     }
     UNION
     {

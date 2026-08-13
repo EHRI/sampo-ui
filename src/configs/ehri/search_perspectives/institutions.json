@@ -460,11 +460,11 @@
       "facetValueFilter": "?id a ?place . VALUES ?place { ehri:Region }",
       "facetLabelPredicate": "rico:name",
       "filterType": "uriFilter",
-      "predicate": "rico:agentHasOrHadLocation/rico:isOrWasContainedBy*",
+      "predicate": "rico:agentHasOrHadLocation/rico:isContainedByTransitive*",
       "searchField": true,
       "sortButton": true,
       "sortBy": "instanceCount",
-      "sortByPredicate": "rico:agentHasOrHadLocation/rico:isOrWasContainedBy*/rico:name",
+      "sortByPredicate": "rico:agentHasOrHadLocation/rico:isContainedByTransitive*/rico:name",
       "sortDirection": "desc",
       "pieChartButton": true
     },
@@ -474,11 +474,11 @@
       "facetValueFilter": "?id a ?place . VALUES ?place { ehri:City }",
       "facetLabelPredicate": "rico:name",
       "filterType": "uriFilter",
-      "predicate": "rico:agentHasOrHadLocation/rico:isOrWasContainedBy*",
+      "predicate": "rico:agentHasOrHadLocation/rico:isContainedByTransitive*",
       "searchField": true,
       "sortButton": true,
       "sortBy": "instanceCount",
-      "sortByPredicate": "rico:agentHasOrHadLocation/rico:isOrWasContainedBy*/rico:name",
+      "sortByPredicate": "rico:agentHasOrHadLocation/rico:isContainedByTransitive*/rico:name",
       "sortDirection": "desc",
       "pieChartButton": true
     }

@@ -87,8 +87,8 @@
     {
       "id": "flag",
       "valueType": "image",
-      "previewImageHeight": 100,
-      "previewImageWidth": 150,
+      "previewImageHeight": 50,
+      "previewImageWidth": 100,
       "makeLink": true,
       "externalLink": false,
       "sortValues": false,

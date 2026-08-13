@@ -310,7 +310,7 @@ class LeafletMap extends React.Component {
     const { mapboxAccessToken, mapboxStyle } = mapboxConfig
 
     // Base layer(s)
-    const mapboxBaseLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/${mapboxStyle}/tiles/{z}/{x}/{y}?access_token=${mapboxAccessToken}`, {
+    const mapboxBaseLayer = L.tileLayer(`https://a.tile.openstreetmap.org/{z}/{x}/{y}.png`, {
       attribution: '&copy; <a href="https://www.mapbox.com/map-feedback/" target="_blank" rel="noopener">Mapbox</a> &copy; <a href="http://osm.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong> contributors',
       tileSize: 512,
       zoomOffset: -1
