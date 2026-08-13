@@ -108,9 +108,9 @@ export const institutionProperties = `
       ?location rico:hasOrHadPhysicalLocation ?physicalLocation .
       ?physicalLocation rico:name ?address .
       ?physicalLocation schema:postalCode ?postalCode .
-      ?location rico:isOrWasContainedBy* [ a ehri:City ; rico:name ?city] .
-      ?location rico:isOrWasContainedBy* [ a ehri:Region ; rico:name ?region] .
-      ?location rico:isOrWasContainedBy* [ a ehri:Country ; rico:name ?countryName] .
+      ?location rico:isContainedByTransitive* [ a ehri:City ; rico:name ?city] .
+      ?location rico:isContainedByTransitive* [ a ehri:Region ; rico:name ?region] .
+      ?location rico:isContainedByTransitive* [ a ehri:Country ; rico:name ?countryName] .
       BIND(CONCAT(?address, " ", ?city, " ", ?region, " ", STR(?postalCode), " ", ?countryName) AS ?fullAddress)
     }
 `
@@ -143,7 +143,7 @@ export const institutionsPerRegionQuery = `
     {
       ?institution a ehri:Institution ;
         rico:agentHasOrHadLocation ?location .
-      ?location rico:isOrWasContainedBy ?region .
+      ?location rico:isContainedByTransitive* ?region .
       ?region a ehri:Region .
       ?region rico:name ?prefLabel .
       <FILTER>
@@ -159,7 +159,7 @@ export const institutionsPerCityQuery = `
     {
       ?institution a ehri:Institution ;
         rico:agentHasOrHadLocation ?location .
-      ?location rico:isOrWasContainedBy ?city .
+      ?location rico:isContainedByTransitive* ?city .
       ?city a ehri:City .
       ?city rico:name ?prefLabel .
       <FILTER>

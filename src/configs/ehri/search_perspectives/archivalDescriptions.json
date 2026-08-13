@@ -358,7 +358,17 @@
             "disableSort": true
         },
         {
-            "id": "history",
+            "id": "archivalHistory",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "biographicalHistory",
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
@@ -726,11 +736,11 @@
             "facetValueFilter": "?id a ?place . VALUES ?place { ehri:Region }",
             "facetLabelPredicate": "rico:name",
             "filterType": "uriFilter",
-            "predicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isOrWasContainedBy*",
+            "predicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isContainedByTransitive*",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isOrWasContainedBy*/rico:name",
+            "sortByPredicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isContainedByTransitive*/rico:name",
             "sortDirection": "desc",
             "pieChartButton": true
         },
@@ -740,11 +750,11 @@
             "facetValueFilter": "?id a ?place . VALUES ?place { ehri:City }",
             "facetLabelPredicate": "rico:name",
             "filterType": "uriFilter",
-            "predicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isOrWasContainedBy*",
+            "predicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isContainedByTransitive*",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isOrWasContainedBy*/rico:name",
+            "sortByPredicate": "rico:hasOrHadHolder/rico:agentHasOrHadLocation/rico:isContainedByTransitive*/rico:name",
             "sortDirection": "desc",
             "pieChartButton": true
         },
